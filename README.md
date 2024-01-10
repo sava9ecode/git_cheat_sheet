@@ -64,3 +64,32 @@ Check repo history:
 * __git log__ - _check history (output is in desc order by default)_
   * __git log --reverse__ - _make output in asc order_
   * __git log --oneline__ - _check short history_
+
+## Synchronizing a local Git repository with a remote one
+Check if the keys already exist:
+```bash
+cd ~
+```
+```bash
+ls -la ~/.ssh
+```
+
+Instuction to generate SSH keys:
+```bash
+ssh-keygen -t ed25519 -C 'email address associated with your GitHub'
+```
+If the algorithm is not supported:
+```bash
+ssh-keygen -t rsa -b 4096 -C 'email address associated with your GitHub'
+```
+
+Check SSH Keys:
+```bash
+ssh -T git@github.com
+```
+
+Add origin:
+```bash
+git remote add origin <url>
+git remote -v
+```
