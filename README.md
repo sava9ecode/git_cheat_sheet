@@ -1,5 +1,7 @@
 # Git Cheat Sheet
-This repository for refreshing your memory about Git.
+This repository is for refreshing your memory about Git.
+
+Git is a _Global Information Tracker_ or _Goddamn Idiotic Truckload of sh*t_, depends on your mood.
 
 ## Basic CLI
 Commands:
@@ -19,7 +21,7 @@ Commands:
 * __rmdir__ - _remove an empty directory_
 
 Symbols:
-* __/__ - _root directory__
+* __/__ - _root directory_
 * __~__ - _home directory (tilda)_
 * __..__ - _parent directory_
 * __.__ - _current directory_
@@ -41,3 +43,24 @@ Write who are you:
 Two ways to check configuration:
 * __cat ~/.gitconfig__
 * __git config --list__
+
+## First Steps With Git
+Initialize/remove git repository:
+* __git init__ - _create repo_
+* __rm -rf .git__ - _remove repo_
+
+Check repo state/add files to index:
+* __git status__ - _check state of the repo_
+* __git add__ - _add files to index_
+  * __git add__ file_name - _add file to index_
+  * __git add --all__ - _add all files to index_
+  * __git add .__ - _add all files from the current dir to index_
+
+Commit files:
+* __git commit__ - _open redactor and create commit_
+  * __git commit -m__ 'Info message' - _create commit with message_
+
+Check repo history:
+* __git log__ - _check history (output is in desc order by default)_
+  * __git log --reverse__ - _make output in asc order_
+  * __git log --oneline__ - _check short history_
