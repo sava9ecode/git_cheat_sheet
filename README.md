@@ -143,17 +143,33 @@ First push:
 git push -u origin main  # after you should write just `git push`
 ```
 
-### File States/Git Status States
+### States
+File/git status:
 - untracked/untracked files
 - tracked
 - staged (staging area, index, cash)/changes to be commited
 - modified/changes not staged for commit
 
+Roadmap:
+```mermaid
+graph LR;
+  untracked -- "git add" --> staged;
+  staged -- "git restore --staged" --> untracked;
+  staged -- "some changes" --> modified;
+  staged -- "git restore --staged" --> modified;
+  staged -- "git commit" --> tracked/commited;
+  modified -- "git add" --> staged;
+  modified -- "git restore" --> staged;
+  modified -- "git restore" --> tracked/commited;
+  tracked/commited -- "some changes" --> modified;
+```
+
+Git file lifecycle:
 ![Git file lifecycle](https://pictures.s3.yandex.net/resources/M2_T5_1686651284.png)
 
 ### Commit Styles
-- corporate ```git commit -m '<jira_task_id>: <message>'```
-- conventional commits ```git commit -m '<type>: <message>'```
-- GitHub-style ```git commit -m 'Fix <task_num>, <message>'```
+- corporate `<jira_task_id>: <message>`
+- conventional commits `<type>: <message>`
+- GitHub-style `Fix <task_num>, <message>`
 
 [More info about Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0-beta.4/#%D1%81%D0%BF%D0%B5%D1%86%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D1%8F "Conventional Commits")
