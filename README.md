@@ -26,31 +26,31 @@ ls -l  # long
 ls -la  # all + long
 ```
 ```bash
-touch  # create a file
+touch <file_name>  # create a file; one or more
 ```
 ```bash
-mkdir  # create a dir
+mkdir <dir_name>  # create a dir
 ```
 ```bash
 mkdir -p  # create dirs
 ```
 ```bash
-cp  # copy
+cp <file_or_dir>  # copy one or more
 ```
 ```bash
-mv  # move
+mv <file_or_dir>  # move one or more
 ```
 ```bash
-cat  # concatenate and print
+cat <file>  # concatenate and print
 ```
 ```bash
-rm  # remove a file
+rm <file>  # remove a file
 ```
 ```bash
-rm -rf  # remove a not empty dir; r - recursive; f - force
+rm -rf <not_empty_dir>  # remove a not empty dir; r - recursive; f - force
 ```
 ```bash
-rmdir  # remove an empty dir
+rmdir <empty_dir>  # remove an empty dir
 ```
 
 ### Symbols:
@@ -100,7 +100,7 @@ git status  # check state of the repo
 git add  # add file(s) to index; --all - all files; . - all files from current dir
 ```
 ```bash
-git commit  # create commit with redactor
+git commit  # create commit with redactor to make comment
 ```
 ```bash
 git commit -m 'Initial commit'  # create commit with message
@@ -164,7 +164,7 @@ graph LR;
   tracked/commited -- "some changes" --> modified;
 ```
 
-Git file lifecycle:
+**Git file lifecycle**:
 ![Git file lifecycle](https://pictures.s3.yandex.net/resources/M2_T5_1686651284.png)
 
 ### Commit Styles
@@ -173,3 +173,32 @@ Git file lifecycle:
 - GitHub-style `Fix <task_num>, <message>`
 
 [More info about Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0-beta.4/#%D1%81%D0%BF%D0%B5%D1%86%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D1%8F "Conventional Commits")
+
+### Change Last Commit
+```bash
+git commit --amend --no-edit  # without comment changing
+git commit --amend -m  # change comment in the last commit
+```
+
+### Rollback
+To unstage:
+```bash
+git restore --staged <file>  # one file
+git restore --staged .  # all files
+```
+
+For commits:
+```bash
+git log --oneline  # to check hash
+git reset --hard <commit_hash>  # to rollback
+```
+
+**Rollback-schema** with `git reset --hard`:
+![rollback-schema with git reset --hard](https://pictures.s3.yandex.net/resources/M2_T6_1686651127.png "git reset --hard")
+
+*Be careful with git reset --hard command, you can lose some important information!*
+
+Rollback files that were modified by accident:
+```bash
+git restore <file>
+```
