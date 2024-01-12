@@ -180,7 +180,7 @@ git commit --amend --no-edit  # without comment changing
 git commit --amend -m  # change comment in the last commit
 ```
 
-### Rollback
+### Rollbacks
 To unstage:
 ```bash
 git restore --staged <file>  # one file
@@ -202,3 +202,41 @@ Rollback files that were modified by accident:
 ```bash
 git restore <file>
 ```
+
+### Check Changes
+Between files:
+```bash
+git diff  # modified files by default
+git diff --staged  # staged files
+```
+
+Between commints:
+```bash
+git diff <commit1_hash> <commit2_hash>  # order is important
+```
+*You can use HEAD insted of the last commit hash.*
+
+### .gitignore
+Steps:
+- create .gitignore file in the root directory
+- fill it out
+
+Templates:
+```
+# - a comment
+__pycache__ - just a file
+*, *.jpeg, docs/*/tmp - all files, all .jpeg files, all tmp files in docs subdirs
+!, !doge.jpeg - except
+? - one symbol
+[...], [1-9], [a-z] - one symbol from brackets
+/, /todo.txt - ignore file(s) only in the root directory
+build/ - ignore only target directory
+** - depth no matter (0 or more); to compare * - only one
+```
+
+Ignored files don't display with git status by default, but you can change it:
+```bash
+git status --ignored
+```
+
+[A collection of useful .gitignore templates.](https://github.com/github/gitignore ".gitignore templates")
