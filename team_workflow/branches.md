@@ -77,3 +77,36 @@ Or if you want to avoid a conflict:
 ```bash
 git merge --abort
 ```
+
+## Push Branch
+How to push a branch to a remote repo?
+- create a new branch
+- do some changes (optional)
+- `git push -u origin <new_branch_name>`
+
+*To push a branch it's not necessary to be in it.*
+
+## Pull Request
+Where can I do PR?
+- link from your terminal
+- git UI
+
+What is PR for?
+- code review
+- merge your branch
+
+## Pull Changes
+Good practice:
+```bash
+git checkout main
+git pull
+git checkout <your_branch>
+git merge main
+git push -u origin <your_branch>
+```
+
+## Change Remote Repo
+```bash
+git remote rm origin
+git remote add origin <url>
+```
