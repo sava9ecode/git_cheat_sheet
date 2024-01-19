@@ -47,3 +47,33 @@ Compare:
 git diff <branchname1> <branchname2>  # you can also use HEAD or commit hash
 git diff HEAD~ HEAD  # ~N is a navigation suffix; from 0 to len(commits) - 1; 1 by default (without N)
 ```
+
+Merge:
+```bash
+git checkout main  # usually main
+git merge <branch_name>
+```
+
+Delete:
+```bash
+git branch -D  # --delete --force
+git branch -d  # if there are no changes
+```
+
+## Conflict
+Sometimes when two or more developers edit the same files, there's a conflict.
+
+![conflict](https://pictures.s3.yandex.net/resources/M3_T3-5_1687852525.png "conflict")
+
+How to solve it?
+- check out files where conflict is
+- change it to save all things
+- `git add && git commit`
+
+
+![solve a conflict](https://pictures.s3.yandex.net/resources/Untitled-110_1687531034.png "solve a conflict")
+
+Or if you want to avoid a conflict:
+```bash
+git merge --abort
+```
